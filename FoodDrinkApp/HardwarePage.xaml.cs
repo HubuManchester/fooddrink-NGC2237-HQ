@@ -86,6 +86,7 @@ public partial class HardwarePage : ContentPage
         }
     }
 
+
     private static async Task<string> BuildAddressTextAsync(Location location)
     {
         try
