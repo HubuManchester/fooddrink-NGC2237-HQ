@@ -21,7 +21,7 @@
 		<Nullable>enable</Nullable>
 
 		<!-- Display name -->
-		<ApplicationTitle>NutriBite</ApplicationTitle>
+		<ApplicationTitle>Food and Drink</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.student.nutritrack</ApplicationId>
