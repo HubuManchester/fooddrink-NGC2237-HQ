@@ -25,11 +25,6 @@ public partial class HardwarePage : ContentPage
 
     private async void OnTakePhotoClicked(object? sender, EventArgs e)
     {
-        // TODO: 将在下一步恢复相机功能
-        await DisplayAlert("信息", "相机功能将在下一步添加", "OK");
-        return;
-
-        /* 
         try
         {
             if (!MediaPicker.Default.IsCaptureSupported)
@@ -61,7 +56,6 @@ public partial class HardwarePage : ContentPage
         {
             SetStatus($"Camera error: {ex.Message}");
         }
-        */
     }
 
     private async void OnGetLocationClicked(object? sender, EventArgs e)
