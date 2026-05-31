@@ -12,22 +12,6 @@
         </ScrollView.Background>
 
         <VerticalStackLayout Padding="22" Spacing="16">
-            <Border StrokeThickness="0" Padding="18" BackgroundColor="{AppThemeBinding Light=#FFFDF8, Dark=#1A1712}">
-                <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="8" />
-                </Border.StrokeShape>
-                <VerticalStackLayout Spacing="6">
-                    <Label Text="Accessibility settings"
-                           FontSize="28"
-                           FontAttributes="Bold"
-                           TextColor="{AppThemeBinding Light=#3A2518, Dark=#FFF2DF}"
-                           SemanticProperties.HeadingLevel="Level1" />
-                    <Label Text="Large text takes effect immediately and remains active when switching pages."
-                           FontSize="15"
-                           TextColor="{AppThemeBinding Light=#8B6D55, Dark=#D8C4AC}" />
-                </VerticalStackLayout>
-            </Border>
-
             <Border StrokeThickness="1"
                     Stroke="{AppThemeBinding Light=#F0D6B8, Dark=#3E3023}"
                     BackgroundColor="{AppThemeBinding Light=#FFFFFA, Dark=#1A1712}"

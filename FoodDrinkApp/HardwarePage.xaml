@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FoodDrinkApp.HardwarePage"
-             Title="Hardware Demo">
+             Title="Hardware">
     <ScrollView>
         <ScrollView.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
@@ -12,22 +12,6 @@
         </ScrollView.Background>
 
         <VerticalStackLayout Padding="22" Spacing="16">
-            <Border StrokeThickness="0" Padding="18" BackgroundColor="{AppThemeBinding Light=#FFFDF8, Dark=#1A1712}">
-                <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="8" />
-                </Border.StrokeShape>
-                <VerticalStackLayout Spacing="6">
-                    <Label Text="Mobile hardware"
-                           FontSize="28"
-                           FontAttributes="Bold"
-                           TextColor="{AppThemeBinding Light=#3A2518, Dark=#FFF2DF}"
-                           SemanticProperties.HeadingLevel="Level1" />
-                    <Label Text="Demonstrate camera, location, speech, vibration, and haptic feedback."
-                           FontSize="15"
-                           TextColor="{AppThemeBinding Light=#8B6D55, Dark=#D8C4AC}" />
-                </VerticalStackLayout>
-            </Border>
-
             <Border StrokeThickness="1"
                     Stroke="{AppThemeBinding Light=#F0D6B8, Dark=#3E3023}"
                     BackgroundColor="{AppThemeBinding Light=#FFFFFA, Dark=#1A1712}"

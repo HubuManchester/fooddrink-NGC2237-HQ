@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:models="clr-namespace:FoodDrinkApp.Models"
              x:Class="FoodDrinkApp.MainPage"
-             Title="NutriBite">
+             Title="Today's Meal">
     <Grid RowDefinitions="Auto,*">
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
@@ -28,17 +28,9 @@
                 <Border.Shadow>
                     <Shadow Brush="#33000000" Offset="0,8" Radius="18" Opacity="0.45" />
                 </Border.Shadow>
-                <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto" RowSpacing="10">
-                    <Label Text="NutriBite"
-                           FontSize="31"
-                           FontAttributes="Bold"
-                           TextColor="#FFFFFF"
-                           SemanticProperties.HeadingLevel="Level1" />
-                    <Label Grid.Row="1"
-                           Text="Track nutrition, flavour, photos, and meal context in one place."
-                           FontSize="15"
-                           TextColor="#FFF5E8" />
-                    <Grid Grid.Row="2" ColumnDefinitions="*,*,*" ColumnSpacing="8" Margin="0,3,0,0">
+                <Grid RowDefinitions="Auto,Auto,Auto" RowSpacing="10">
+                    <!-- Row 0: 三个标签（Nutrition / Photos / Voice）-->
+                    <Grid Grid.Row="0" ColumnDefinitions="*,*,*" ColumnSpacing="8" Margin="0,3,0,0">
                         <Border BackgroundColor="#33FFFFFF" StrokeThickness="0" Padding="10,7">
                             <Border.StrokeShape>
                                 <RoundRectangle CornerRadius="8" />
@@ -58,7 +50,9 @@
                             <Label Text="Voice" TextColor="#FFFFFF" FontSize="12" FontAttributes="Bold" HorizontalTextAlignment="Center" />
                         </Border>
                     </Grid>
-                    <Grid Grid.Row="3" ColumnDefinitions="*,Auto" ColumnSpacing="10" Margin="0,6,0,0">
+
+                    <!-- Row 1: 搜索栏 + Add 按钮 -->
+                    <Grid Grid.Row="1" ColumnDefinitions="*,Auto" ColumnSpacing="10" Margin="0,6,0,0">
                         <Border StrokeThickness="1"
                                 Stroke="#FFE0BA"
                                 BackgroundColor="#FFFFFA"
@@ -83,15 +77,16 @@
                                 Clicked="OnAddClicked"
                                 SemanticProperties.Hint="Add a new food or drink record" />
                     </Grid>
-                    <!-- Random recommendation button -->
-                    <Button Grid.Row="4"
-                        Text="Randomly recommend delicious food"
-                        BackgroundColor="#F29B38"
-                        TextColor="#3A2518"
-                        FontAttributes="Bold"
-                        Clicked="OnRandomPickClicked"
-                        Margin="0,8,0,0"
-                        SemanticProperties.Hint="Randomly recommend a dish or drink" />
+
+                    <!-- Row 2: 随机推荐按钮 -->
+                    <Button Grid.Row="2"
+                            Text="Randomly recommend delicious food"
+                            BackgroundColor="#E67E22"
+                            TextColor="#FFFFFF"
+                            FontAttributes="Bold"
+                            Clicked="OnRandomPickClicked"
+                            Margin="0,8,0,0"
+                            SemanticProperties.Hint="Randomly recommend a dish or drink" />
                 </Grid>
             </Border>
         </Grid>
