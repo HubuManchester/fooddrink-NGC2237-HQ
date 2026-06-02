@@ -54,14 +54,14 @@ public partial class FoodDetailPage : ContentPage
         AllergyLabel.Text = currentItem.AllergyNote;
         SemanticProperties.SetDescription(NameLabel, currentItem.AccessibleSummary);
 
-        // œ‘ æ’’∆¨
+        // Show photos
         if (!string.IsNullOrWhiteSpace(currentItem.ImagePath) && File.Exists(currentItem.ImagePath))
         {
             DetailPhoto.Source = ImageSource.FromStream(() => File.OpenRead(currentItem.ImagePath));
             PhotoSection.IsVisible = true;
         }
 
-        // œ‘ æŒª÷√
+        // Show position
         if (!string.IsNullOrWhiteSpace(currentItem.Location))
         {
             DetailLocation.Text = currentItem.Location;
@@ -93,17 +93,4 @@ public partial class FoodDetailPage : ContentPage
         SemanticScreenReader.Announce("Reading stopped.");
     }
 
-    private async void OnVibrateClicked(object? sender, EventArgs e)
-    {
-        try
-        {
-            Vibration.Default.Vibrate(TimeSpan.FromMilliseconds(500));
-            HapticFeedback.Default.Perform(HapticFeedbackType.LongPress);
-            await DisplayAlert("Reminder", "Vibration feedback has been triggered.", "OK");
-        }
-        catch (Exception ex)
-        {
-            await DisplayAlert("Vibration unavailable", ex.Message, "OK");
-        }
-    }
 }

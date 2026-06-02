@@ -91,16 +91,27 @@
                         SemanticProperties.Hint="Stop current speech" />
             </Grid>
 
-            <Button Text="Haptic feedback"
-                    BackgroundColor="{AppThemeBinding Light=#FFFFFA, Dark=#1A1712}"
-                    BorderColor="{AppThemeBinding Light=#F0D6B8, Dark=#8A7A6A}"
-                    BorderWidth="1"
-                    TextColor="{AppThemeBinding Light=#D9472B, Dark=#FFB15D}"
-                    Clicked="OnFeedbackClicked"
-                    SemanticProperties.Hint="Trigger vibration and haptic feedback" />
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                <!-- Vibration test button -->
+                <Button Text="Vibration Test"
+                        BackgroundColor="{AppThemeBinding Light=#FFFFFA, Dark=#1A1712}"
+                        BorderColor="{AppThemeBinding Light=#F0D6B8, Dark=#8A7A6A}"
+                        BorderWidth="1"
+                        TextColor="{AppThemeBinding Light=#D9472B, Dark=#FFB15D}"
+                        Clicked="OnVibrationOnlyClicked"
+                        SemanticProperties.Hint="Test device vibration" />
+
+                <!-- Tactile feedback test button -->
+                <Button Grid.Column="1"
+                        Text="Haptic Test"
+                        BackgroundColor="{AppThemeBinding Light=#FFBF53, Dark=#FBB611}"
+                        TextColor="{AppThemeBinding Light=#FFFFFF, Dark=#261307}"
+                        Clicked="OnHapticOnlyClicked"
+                        SemanticProperties.Hint="Test haptic feedback" />
+            </Grid>
 
             <Border StrokeThickness="0"
-                    BackgroundColor="{AppThemeBinding Light=#FFF0BC, Dark=#4A3417}"
+                    BackgroundColor="{AppThemeBinding Light=#FFF0C9, Dark=#312316}"
                     Padding="14">
                 <Border.StrokeShape>
                     <RoundRectangle CornerRadius="8" />
@@ -110,10 +121,18 @@
                            Text="Ready."
                            FontAttributes="Bold"
                            TextColor="{AppThemeBinding Light=#A95517, Dark=#FFD18E}" />
-                    <Label x:Name="FeedbackCountLabel"
-                           Text="Haptic feedback tests: 0"
-                           FontSize="13"
-                           TextColor="{AppThemeBinding Light=#6E5A47, Dark=#D8C4AC}" />
+                    <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
+                        <Label x:Name="VibrationCountLabel"
+                               Text="Vibration tests: 0"
+                               FontSize="13"
+                               TextColor="{AppThemeBinding Light=#6E5A47, Dark=#D8C4AC}" />
+                        <Label x:Name="HapticCountLabel"
+                               Grid.Column="1"
+                               Text="Haptic tests: 0"
+                               FontSize="13"
+                               TextColor="{AppThemeBinding Light=#6E5A47, Dark=#D8C4AC}"
+                               HorizontalTextAlignment="End" />
+                    </Grid>
                 </VerticalStackLayout>
             </Border>
         </VerticalStackLayout>

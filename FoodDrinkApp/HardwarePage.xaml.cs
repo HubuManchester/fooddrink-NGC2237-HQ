@@ -1,10 +1,13 @@
 using FoodDrinkApp.Services;
+using Microsoft.Maui.Media;
+using Microsoft.Maui.ApplicationModel;
 
 namespace FoodDrinkApp;
 
 public partial class HardwarePage : ContentPage
 {
-    private int feedbackTestCount;
+    private int vibrationTestCount;
+    private int hapticTestCount;
 
     public HardwarePage()
     {
@@ -175,26 +178,39 @@ public partial class HardwarePage : ContentPage
         SetStatus("Reading stopped.");
     }
 
-    private void OnFeedbackClicked(object? sender, EventArgs e)
+    // Vibration test
+    private void OnVibrationOnlyClicked(object? sender, EventArgs e)
     {
         try
         {
-            System.Diagnostics.Debug.WriteLine("=== 震动按钮被点击了 ===");
-
             Vibration.Default.Vibrate(TimeSpan.FromMilliseconds(1200));
-            System.Diagnostics.Debug.WriteLine("=== 震动命令已执行 ===");
+            vibrationTestCount++;
+            VibrationCountLabel.Text = $"Vibration tests: {vibrationTestCount}";
+            SetStatus("Vibration triggered (1200ms).");
 
-            HapticFeedback.Default.Perform(HapticFeedbackType.LongPress);
-            System.Diagnostics.Debug.WriteLine("=== 触觉反馈已执行 ===");
-
-            feedbackTestCount++;
-            FeedbackCountLabel.Text = $"Haptic feedback tests: {feedbackTestCount}";
-            SetStatus("Vibration and haptic feedback triggered.");
+            SemanticScreenReader.Announce("Vibration test triggered");
         }
         catch (Exception ex)
         {
-            System.Diagnostics.Debug.WriteLine($"=== 震动错误: {ex.Message} ===");
-            SetStatus($"Feedback error: {ex.Message}");
+            SetStatus($"Vibration error: {ex.Message}");
+        }
+    }
+
+    // Tactile feedback test
+    private void OnHapticOnlyClicked(object? sender, EventArgs e)
+    {
+        try
+        {
+            HapticFeedback.Default.Perform(HapticFeedbackType.LongPress);
+            hapticTestCount++;
+            HapticCountLabel.Text = $"Haptic tests: {hapticTestCount}";
+            SetStatus("Haptic feedback triggered.");
+
+            SemanticScreenReader.Announce("Haptic feedback test triggered");
+        }
+        catch (Exception ex)
+        {
+            SetStatus($"Haptic error: {ex.Message}");
         }
     }
 

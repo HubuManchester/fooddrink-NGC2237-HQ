@@ -75,8 +75,8 @@
             </Border>
 
             <Button Text="Hardware Test (for demo)"
-                    BackgroundColor="{AppThemeBinding Light=#D9472B, Dark=#FFB15D}"
-                    TextColor="#FFFFFF"
+                    BackgroundColor="{AppThemeBinding Light=#FFBF53, Dark=#FBB611}"
+                    TextColor="{AppThemeBinding Light=#FFFFFF, Dark=#261307}"
                     FontAttributes="Bold"
                     Clicked="OnHardwareTestClicked"
                     Margin="0,16,0,0" />
@@ -84,7 +84,7 @@
             <Label x:Name="SettingsStatusLabel"
                    Text="Settings ready."
                    FontAttributes="Bold"
-                   TextColor="{AppThemeBinding Light=#D9472B, Dark=#FFB15D}" />
+                   TextColor="{AppThemeBinding Light=#D9472B, Dark=#FF9C7B}" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

@@ -105,11 +105,6 @@
                         SemanticProperties.Hint="Stop the current speech" />
             </Grid>
 
-            <Button Text="Vibration reminder"
-                    BackgroundColor="{AppThemeBinding Light=#83B271, Dark=#478E38}"
-                    TextColor="#FFFFFF"
-                    Clicked="OnVibrateClicked"
-                    SemanticProperties.Hint="Use mobile vibration as a meal reminder" />
         </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

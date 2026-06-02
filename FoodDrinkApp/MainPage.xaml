@@ -94,16 +94,20 @@
                                    TextColor="{AppThemeBinding Light=#3A2518, Dark=#FFF2DF}"
                                    SemanticProperties.HeadingLevel="Level2" />
                                     <Border Grid.Column="1"
-                                    StrokeThickness="0"
-                                    BackgroundColor="{AppThemeBinding Light=#FFF0BC, Dark=#4A3417}"
-                                    Padding="10,5">
+                                            StrokeThickness="0"
+                                            BackgroundColor="{AppThemeBinding Light=#FFF0C9, Dark=#4A3417}"
+                                            Padding="10,5"
+                                            HeightRequest="36"
+                                            VerticalOptions="Center">
                                         <Border.StrokeShape>
                                             <RoundRectangle CornerRadius="8" />
                                         </Border.StrokeShape>
                                         <Label Text="{Binding CaloriesLabel}"
-                                       FontSize="13"
-                                       FontAttributes="Bold"
-                                       TextColor="{AppThemeBinding Light=#A95517, Dark=#FFD18E}" />
+                                               FontSize="13"
+                                               FontAttributes="Bold"
+                                               TextColor="{AppThemeBinding Light=#A95517, Dark=#FFD18E}"
+                                               VerticalOptions="Center"
+                                               HorizontalOptions="Center" />
                                     </Border>
                                     <Label Grid.Row="1"
                                    Grid.ColumnSpan="2"

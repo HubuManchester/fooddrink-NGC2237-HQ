@@ -110,9 +110,9 @@
                                    TextColor="{AppThemeBinding Light=#8B6D55, Dark=#D8C4AC}" />
                         </VerticalStackLayout>
                         <Button Grid.Column="1" 
-                                Text="Take Photo" 
-                                BackgroundColor="#D9472B" 
-                                TextColor="#FFFFFF"
+                                Text="Photo" 
+                                BackgroundColor="{AppThemeBinding Light=#FFBF53, Dark=#FBB611}"
+                                TextColor="{AppThemeBinding Light=#FFFFFF, Dark=#261307}"
                                 Clicked="OnTakePhotoClicked"
                                 SemanticProperties.Hint="Take a photo of the food" />
                     </Grid>
@@ -153,8 +153,8 @@
                                    TextColor="{AppThemeBinding Light=#8B6D55, Dark=#D8C4AC}" />
                         </VerticalStackLayout>
                         <Button Grid.Column="1" 
-                                Text="Get Location" 
-                                BackgroundColor="#2F7A4F" 
+                                Text="Locate" 
+                                BackgroundColor="{AppThemeBinding Light=#83B271, Dark=#478E38}"
                                 TextColor="#FFFFFF"
                                 Clicked="OnGetLocationClicked"
                                 SemanticProperties.Hint="Get current location for the meal" />
