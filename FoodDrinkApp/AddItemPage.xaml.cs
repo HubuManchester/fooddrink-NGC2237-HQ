@@ -1,10 +1,14 @@
 using FoodDrinkApp.Models;
 using FoodDrinkApp.Services;
+using Microsoft.Maui.Media;
+using Microsoft.Maui.ApplicationModel;
 
 namespace FoodDrinkApp;
 
 public partial class AddItemPage : ContentPage
 {
+    private string? capturedImagePath;
+    private string? capturedLocation;
     public AddItemPage()
     {
         InitializeComponent();
@@ -40,7 +44,9 @@ public partial class AddItemPage : ContentPage
                 AllergyNote = string.IsNullOrWhiteSpace(AllergyEntry.Text)
                     ? "No allergy note provided."
                     : AllergyEntry.Text.Trim(),
-                Tags = $"{NameEntry.Text} {CategoryPicker.SelectedItem} {DescriptionEditor.Text}"
+                Tags = $"{NameEntry.Text} {CategoryPicker.SelectedItem} {DescriptionEditor.Text}",
+                ImagePath = capturedImagePath,      // 新增
+                Location = capturedLocation          // 新增
             };
 
             await FoodCatalogService.AddAsync(item);
@@ -95,6 +101,82 @@ public partial class AddItemPage : ContentPage
         }
 
         return $"Please enter a valid non-negative number for {fieldName}.";
+    }
+
+    private async void OnTakePhotoClicked(object? sender, EventArgs e)
+    {
+        try
+        {
+            if (!MediaPicker.Default.IsCaptureSupported)
+            {
+                await DisplayAlert("Not supported", "Camera is not available on this device.", "OK");
+                return;
+            }
+
+            var photo = await MediaPicker.Default.CapturePhotoAsync();
+            if (photo is null) return;
+
+            // Save photo to app data directory
+            var localPath = Path.Combine(FileSystem.AppDataDirectory, $"{Guid.NewGuid()}.jpg");
+            using var sourceStream = await photo.OpenReadAsync();
+            using var destStream = File.OpenWrite(localPath);
+            await sourceStream.CopyToAsync(destStream);
+
+            capturedImagePath = localPath;
+            PhotoPreview.Source = ImageSource.FromStream(() => File.OpenRead(localPath));
+            PhotoPreviewBorder.IsVisible = true;
+
+            SemanticScreenReader.Announce("Photo captured");
+        }
+        catch (PermissionException)
+        {
+            await DisplayAlert("Permission required", "Camera permission is required to take photos.", "OK");
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("Error", $"Failed to capture photo: {ex.Message}", "OK");
+        }
+    }
+
+    private async void OnGetLocationClicked(object? sender, EventArgs e)
+    {
+        try
+        {
+            var request = new GeolocationRequest(GeolocationAccuracy.Medium, TimeSpan.FromSeconds(10));
+            var location = await Geolocation.Default.GetLocationAsync(request);
+
+            if (location is null)
+            {
+                await DisplayAlert("Location failed", "Could not get current location.", "OK");
+                return;
+            }
+
+            var placemarks = await Geocoding.Default.GetPlacemarksAsync(location);
+            var placemark = placemarks?.FirstOrDefault();
+
+            if (placemark != null)
+            {
+                var parts = new[] { placemark.CountryName, placemark.AdminArea, placemark.Locality }
+                    .Where(p => !string.IsNullOrWhiteSpace(p));
+                capturedLocation = string.Join(" / ", parts);
+            }
+            else
+            {
+                capturedLocation = $"Lat: {location.Latitude:F4}, Lng: {location.Longitude:F4}";
+            }
+
+            LocationLabel.Text = capturedLocation;
+            LocationLabel.TextColor = Colors.Green;
+            SemanticScreenReader.Announce("Location captured");
+        }
+        catch (PermissionException)
+        {
+            await DisplayAlert("Permission required", "Location permission is required.", "OK");
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("Error", $"Failed to get location: {ex.Message}", "OK");
+        }
     }
 
     private void ShowValidation(string message)

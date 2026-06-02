@@ -51,6 +51,11 @@ public partial class SettingsPage : ContentPage
             : "Turn on the switch to enlarge this preview and other page text.";
     }
 
+    private async void OnHardwareTestClicked(object? sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync(nameof(HardwarePage));
+    }
+
     private void Announce(string message)
     {
         SettingsStatusLabel.Text = message;

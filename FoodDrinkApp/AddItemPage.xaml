@@ -90,6 +90,78 @@
                 </VerticalStackLayout>
             </Border>
 
+            <!-- Photo Section -->
+            <Border StrokeThickness="1"
+                    Stroke="{AppThemeBinding Light=#F0D6B8, Dark=#3E3023}"
+                    BackgroundColor="{AppThemeBinding Light=#FFFFFA, Dark=#1A1712}"
+                    Padding="16">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="8" />
+                </Border.StrokeShape>
+                <VerticalStackLayout Spacing="12">
+                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="12">
+                        <VerticalStackLayout Spacing="3">
+                            <Label Text="Food Photo" 
+                                   FontSize="16" 
+                                   FontAttributes="Bold" 
+                                   TextColor="{AppThemeBinding Light=#D9472B, Dark=#FF9C7B}" />
+                            <Label Text="Capture a photo of your meal" 
+                                   FontSize="12" 
+                                   TextColor="{AppThemeBinding Light=#8B6D55, Dark=#D8C4AC}" />
+                        </VerticalStackLayout>
+                        <Button Grid.Column="1" 
+                                Text="Take Photo" 
+                                BackgroundColor="#D9472B" 
+                                TextColor="#FFFFFF"
+                                Clicked="OnTakePhotoClicked"
+                                SemanticProperties.Hint="Take a photo of the food" />
+                    </Grid>
+
+                    <!-- Photo Preview -->
+                    <Border x:Name="PhotoPreviewBorder"
+                            IsVisible="False"
+                            StrokeThickness="1"
+                            Stroke="{AppThemeBinding Light=#F0D6B8, Dark=#3E3023}"
+                            BackgroundColor="{AppThemeBinding Light=#FFF0C9, Dark=#312316}"
+                            HeightRequest="160">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="8" />
+                        </Border.StrokeShape>
+                        <Image x:Name="PhotoPreview" Aspect="AspectFill" />
+                    </Border>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Location Section -->
+            <Border StrokeThickness="1"
+                    Stroke="{AppThemeBinding Light=#F0D6B8, Dark=#3E3023}"
+                    BackgroundColor="{AppThemeBinding Light=#FFFFFA, Dark=#1A1712}"
+                    Padding="16">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="8" />
+                </Border.StrokeShape>
+                <VerticalStackLayout Spacing="12">
+                    <Grid ColumnDefinitions="*,Auto" ColumnSpacing="12">
+                        <VerticalStackLayout Spacing="3">
+                            <Label Text="Meal Location" 
+                                   FontSize="16" 
+                                   FontAttributes="Bold" 
+                                   TextColor="{AppThemeBinding Light=#2F7A4F, Dark=#8CE6A1}" />
+                            <Label x:Name="LocationLabel" 
+                                   Text="Not captured" 
+                                   FontSize="12" 
+                                   TextColor="{AppThemeBinding Light=#8B6D55, Dark=#D8C4AC}" />
+                        </VerticalStackLayout>
+                        <Button Grid.Column="1" 
+                                Text="Get Location" 
+                                BackgroundColor="#2F7A4F" 
+                                TextColor="#FFFFFF"
+                                Clicked="OnGetLocationClicked"
+                                SemanticProperties.Hint="Get current location for the meal" />
+                    </Grid>
+                </VerticalStackLayout>
+            </Border>
+
             <Border x:Name="ValidationPanel"
                     IsVisible="False"
                     StrokeThickness="0"

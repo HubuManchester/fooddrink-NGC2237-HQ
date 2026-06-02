@@ -49,6 +49,46 @@
                 </VerticalStackLayout>
             </Border>
 
+            <!-- Photo Section -->
+            <Border x:Name="PhotoSection"
+                    IsVisible="False"
+                    StrokeThickness="1"
+                    Stroke="{AppThemeBinding Light=#F0D6B8, Dark=#3E3023}"
+                    BackgroundColor="{AppThemeBinding Light=#FFFFFA, Dark=#1A1712}"
+                    Padding="16">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="8" />
+                </Border.StrokeShape>
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="Food Photo" FontSize="16" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#D9472B, Dark=#FF9C7B}" />
+                    <Border StrokeThickness="1"
+                            Stroke="{AppThemeBinding Light=#F0D6B8, Dark=#3E3023}"
+                            BackgroundColor="{AppThemeBinding Light=#FFF0C9, Dark=#312316}"
+                            HeightRequest="200">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="8" />
+                        </Border.StrokeShape>
+                        <Image x:Name="DetailPhoto" Aspect="AspectFill" />
+                    </Border>
+                </VerticalStackLayout>
+            </Border>
+
+            <!-- Location Section -->
+            <Border x:Name="LocationSection"
+                    IsVisible="False"
+                    StrokeThickness="1"
+                    Stroke="{AppThemeBinding Light=#F0D6B8, Dark=#3E3023}"
+                    BackgroundColor="{AppThemeBinding Light=#FFFFFA, Dark=#1A1712}"
+                    Padding="16">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="8" />
+                </Border.StrokeShape>
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Meal Location" FontSize="16" FontAttributes="Bold" TextColor="{AppThemeBinding Light=#2F7A4F, Dark=#8CE6A1}" />
+                    <Label x:Name="DetailLocation" FontSize="14" />
+                </VerticalStackLayout>
+            </Border>
+
             <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
                 <Button Text="Read summary"
                         BackgroundColor="{AppThemeBinding Light=#FFBF53, Dark=#FBB611}"

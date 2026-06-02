@@ -20,10 +20,12 @@
             Title="Foods"
             ContentTemplate="{DataTemplate local:MainPage}"
             Route="MainPage" />
+        <!--
         <ShellContent
             Title="Hardware"
             ContentTemplate="{DataTemplate local:HardwarePage}"
             Route="HardwarePage" />
+        -->
         <ShellContent
             Title="Settings"
             ContentTemplate="{DataTemplate local:SettingsPage}"

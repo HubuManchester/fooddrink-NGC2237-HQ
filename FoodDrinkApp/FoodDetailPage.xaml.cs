@@ -53,6 +53,20 @@ public partial class FoodDetailPage : ContentPage
         DescriptionLabel.Text = currentItem.Description;
         AllergyLabel.Text = currentItem.AllergyNote;
         SemanticProperties.SetDescription(NameLabel, currentItem.AccessibleSummary);
+
+        // œ‘ æ’’∆¨
+        if (!string.IsNullOrWhiteSpace(currentItem.ImagePath) && File.Exists(currentItem.ImagePath))
+        {
+            DetailPhoto.Source = ImageSource.FromStream(() => File.OpenRead(currentItem.ImagePath));
+            PhotoSection.IsVisible = true;
+        }
+
+        // œ‘ æŒª÷√
+        if (!string.IsNullOrWhiteSpace(currentItem.Location))
+        {
+            DetailLocation.Text = currentItem.Location;
+            LocationSection.IsVisible = true;
+        }
     }
 
     private async void OnSpeakClicked(object? sender, EventArgs e)
