@@ -5,15 +5,18 @@
              Title="Settings">
     <ScrollView>
         <ScrollView.Background>
+            <SolidColorBrush Color="{AppThemeBinding Light=#FAFAF3, Dark=#0F1711}" />
+            <!--
             <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                 <GradientStop Color="{AppThemeBinding Light=#FFF1DA, Dark=#130F0C}" Offset="0.0" />
                 <GradientStop Color="{AppThemeBinding Light=#FFF9EF, Dark=#0F1711}" Offset="1.0" />
             </LinearGradientBrush>
+            -->
         </ScrollView.Background>
 
         <VerticalStackLayout Padding="22" Spacing="16">
             <Border StrokeThickness="1"
-                    Stroke="{AppThemeBinding Light=#F0D6B8, Dark=#3E3023}"
+                    Stroke="{AppThemeBinding Light=#F0D6B8, Dark=#8A7A6A}"
                     BackgroundColor="{AppThemeBinding Light=#FFFFFA, Dark=#1A1712}"
                     Padding="16">
                 <Border.StrokeShape>
@@ -59,7 +62,7 @@
             </Border>
 
             <Border StrokeThickness="0"
-                    BackgroundColor="{AppThemeBinding Light=#FFF0C9, Dark=#312316}"
+                    BackgroundColor="{AppThemeBinding Light=#FFF0BC, Dark=#4A3417}"
                     Padding="16">
                 <Border.StrokeShape>
                     <RoundRectangle CornerRadius="8" />

@@ -6,11 +6,11 @@
     xmlns:local="clr-namespace:FoodDrinkApp"
     Title="Today's Meal"
     FlyoutBehavior="Disabled"
-    Shell.BackgroundColor="{AppThemeBinding Light=#FFF4E3, Dark=#120E0B}"
+    Shell.BackgroundColor="{AppThemeBinding Light=#FFF0BC, Dark=#120E0B}"
     Shell.ForegroundColor="{AppThemeBinding Light=#3A2518, Dark=#FFF2DF}"
     Shell.TitleColor="{AppThemeBinding Light=#3A2518, Dark=#FFF2DF}"
     Shell.UnselectedColor="{AppThemeBinding Light=#9A7B63, Dark=#BFA58E}"
-    Shell.TabBarBackgroundColor="{AppThemeBinding Light=#FFF4E3, Dark=#120E0B}"
+    Shell.TabBarBackgroundColor="{AppThemeBinding Light=#FFF0BC, Dark=#120E0B}"
     Shell.TabBarForegroundColor="{AppThemeBinding Light=#D9472B, Dark=#FFB15D}"
     Shell.TabBarTitleColor="{AppThemeBinding Light=#D9472B, Dark=#FFB15D}"
     Shell.TabBarUnselectedColor="{AppThemeBinding Light=#9A7B63, Dark=#BFA58E}">

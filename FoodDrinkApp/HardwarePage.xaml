@@ -5,15 +5,18 @@
              Title="Hardware">
     <ScrollView>
         <ScrollView.Background>
+            <SolidColorBrush Color="{AppThemeBinding Light=#FAFAF3, Dark=#0F1711}" />
+            <!--
             <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                 <GradientStop Color="{AppThemeBinding Light=#FFF1DA, Dark=#130F0C}" Offset="0.0" />
                 <GradientStop Color="{AppThemeBinding Light=#FFF9EF, Dark=#0F1711}" Offset="1.0" />
             </LinearGradientBrush>
+            -->
         </ScrollView.Background>
 
         <VerticalStackLayout Padding="22" Spacing="16">
             <Border StrokeThickness="1"
-                    Stroke="{AppThemeBinding Light=#F0D6B8, Dark=#3E3023}"
+                    Stroke="{AppThemeBinding Light=#F0D6B8, Dark=#8A7A6A}"
                     BackgroundColor="{AppThemeBinding Light=#FFFFFA, Dark=#1A1712}"
                     Padding="16">
                 <Border.StrokeShape>
@@ -27,13 +30,13 @@
                         </VerticalStackLayout>
                         <Button Grid.Column="1"
                                 Text="Photo"
-                                BackgroundColor="#D9472B"
-                                TextColor="#FFFFFF"
+                                BackgroundColor="{AppThemeBinding Light=#FFBF53, Dark=#FBB611}"
+                                TextColor="{AppThemeBinding Light=#FFFFFF, Dark=#261307}"
                                 Clicked="OnTakePhotoClicked"
                                 SemanticProperties.Hint="Open the camera to capture a food image" />
                     </Grid>
                     <Border StrokeThickness="0"
-                            BackgroundColor="{AppThemeBinding Light=#FFF0C9, Dark=#312316}"
+                            BackgroundColor="{AppThemeBinding Light=#FFF0BC, Dark=#312316}"
                             HeightRequest="220">
                         <Border.StrokeShape>
                             <RoundRectangle CornerRadius="8" />
@@ -46,7 +49,7 @@
             </Border>
 
             <Border StrokeThickness="1"
-                    Stroke="{AppThemeBinding Light=#F0D6B8, Dark=#3E3023}"
+                    Stroke="{AppThemeBinding Light=#F0D6B8, Dark=#8A7A6A}"
                     BackgroundColor="{AppThemeBinding Light=#FFFFFA, Dark=#1A1712}"
                     Padding="16">
                 <Border.StrokeShape>
@@ -60,7 +63,7 @@
                         </VerticalStackLayout>
                         <Button Grid.Column="1"
                                 Text="Locate"
-                                BackgroundColor="#2F7A4F"
+                                BackgroundColor="{AppThemeBinding Light=#83B271, Dark=#478E38}"
                                 TextColor="#FFFFFF"
                                 Clicked="OnGetLocationClicked"
                                 SemanticProperties.Hint="Use location to record the meal place" />
@@ -80,14 +83,14 @@
 
             <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
                 <Button Text="Read help"
-                        BackgroundColor="#F29B38"
-                        TextColor="#3A2518"
+                        BackgroundColor="{AppThemeBinding Light=#FFBF53, Dark=#FBB611}"
+                        TextColor="{AppThemeBinding Light=#FFFFFF, Dark=#261307}"
                         Clicked="OnReadHelpClicked"
                         SemanticProperties.Hint="Read the help text aloud" />
                 <Button Grid.Column="1"
                         Text="Stop speech"
                         BackgroundColor="{AppThemeBinding Light=#FFFFFA, Dark=#1A1712}"
-                        BorderColor="{AppThemeBinding Light=#F0D6B8, Dark=#3E3023}"
+                        BorderColor="{AppThemeBinding Light=#F0D6B8, Dark=#8A7A6A}"
                         BorderWidth="1"
                         TextColor="{AppThemeBinding Light=#D9472B, Dark=#FFB15D}"
                         Clicked="OnStopSpeechClicked"
@@ -96,14 +99,14 @@
 
             <Button Text="Haptic feedback"
                     BackgroundColor="{AppThemeBinding Light=#FFFFFA, Dark=#1A1712}"
-                    BorderColor="{AppThemeBinding Light=#F0D6B8, Dark=#3E3023}"
+                    BorderColor="{AppThemeBinding Light=#F0D6B8, Dark=#8A7A6A}"
                     BorderWidth="1"
                     TextColor="{AppThemeBinding Light=#D9472B, Dark=#FFB15D}"
                     Clicked="OnFeedbackClicked"
                     SemanticProperties.Hint="Trigger vibration and haptic feedback" />
 
             <Border StrokeThickness="0"
-                    BackgroundColor="{AppThemeBinding Light=#FFF0C9, Dark=#312316}"
+                    BackgroundColor="{AppThemeBinding Light=#FFF0BC, Dark=#4A3417}"
                     Padding="14">
                 <Border.StrokeShape>
                     <RoundRectangle CornerRadius="8" />

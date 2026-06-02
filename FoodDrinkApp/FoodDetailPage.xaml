@@ -5,10 +5,13 @@
              Title="Nutrition Details">
     <ScrollView>
         <ScrollView.Background>
+            <SolidColorBrush Color="{AppThemeBinding Light=#FAFAF3, Dark=#0F1711}" />
+            <!--
             <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
                 <GradientStop Color="{AppThemeBinding Light=#FFF1DA, Dark=#130F0C}" Offset="0.0" />
                 <GradientStop Color="{AppThemeBinding Light=#FFF9EF, Dark=#0F1711}" Offset="1.0" />
             </LinearGradientBrush>
+            -->
         </ScrollView.Background>
         <VerticalStackLayout Padding="22" Spacing="16">
             <Border StrokeThickness="0" Padding="18">
@@ -16,32 +19,28 @@
                     <RoundRectangle CornerRadius="8" />
                 </Border.StrokeShape>
                 <Border.Background>
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                        <GradientStop Color="{AppThemeBinding Light=#D9472B, Dark=#5B2017}" Offset="0.0" />
-                        <GradientStop Color="{AppThemeBinding Light=#F29B38, Dark=#9B4A19}" Offset="0.72" />
-                        <GradientStop Color="{AppThemeBinding Light=#2F7A4F, Dark=#1D5D3A}" Offset="1.0" />
-                    </LinearGradientBrush>
+                    <SolidColorBrush Color="{AppThemeBinding Light=#FFF0BC, Dark=#4A3417}" />
                 </Border.Background>
                 <Grid RowDefinitions="Auto,Auto,Auto" RowSpacing="8">
                     <Label x:Name="NameLabel"
                            FontSize="30"
                            FontAttributes="Bold"
-                           TextColor="#FFFFFF"
+                           TextColor="{AppThemeBinding Light=#3A2518, Dark=#FFF2DF}"
                            SemanticProperties.HeadingLevel="Level1" />
                     <Label x:Name="CategoryLabel"
                            Grid.Row="1"
                            FontSize="15"
-                           TextColor="#FFF5E8" />
+                           TextColor="{AppThemeBinding Light=#6E5A47, Dark=#D8C4AC}" />
                     <Label x:Name="CaloriesLabel"
                            Grid.Row="2"
                            FontSize="24"
                            FontAttributes="Bold"
-                           TextColor="#FFF0C9" />
+                           TextColor="{AppThemeBinding Light=#A95517, Dark=#FFD18E}" /> 
                 </Grid>
             </Border>
 
             <Border StrokeThickness="1"
-                    Stroke="{AppThemeBinding Light=#F0D6B8, Dark=#3E3023}"
+                    Stroke="{AppThemeBinding Light=#F0D6B8, Dark=#8A7A6A}"
                     BackgroundColor="{AppThemeBinding Light=#FFFFFA, Dark=#1A1712}"
                     Padding="16">
                 <Border.StrokeShape>
@@ -58,14 +57,14 @@
 
             <Grid ColumnDefinitions="*,*" ColumnSpacing="12">
                 <Button Text="Read summary"
-                        BackgroundColor="#D9472B"
-                        TextColor="#FFFFFF"
+                        BackgroundColor="{AppThemeBinding Light=#FFBF53, Dark=#FBB611}"
+                        TextColor="{AppThemeBinding Light=#FFFFFF, Dark=#261307}"
                         Clicked="OnSpeakClicked"
                         SemanticProperties.Hint="Read the nutrition summary aloud" />
                 <Button Grid.Column="1"
                         Text="Stop reading"
                         BackgroundColor="{AppThemeBinding Light=#FFFFFA, Dark=#1A1712}"
-                        BorderColor="{AppThemeBinding Light=#F0D6B8, Dark=#3E3023}"
+                        BorderColor="{AppThemeBinding Light=#F0D6B8, Dark=#8A7A6A}"
                         BorderWidth="1"
                         TextColor="{AppThemeBinding Light=#D9472B, Dark=#FFB15D}"
                         Clicked="OnStopSpeechClicked"
@@ -73,7 +72,7 @@
             </Grid>
 
             <Button Text="Vibration reminder"
-                    BackgroundColor="#2F7A4F"
+                    BackgroundColor="#83B271"
                     TextColor="#FFFFFF"
                     Clicked="OnVibrateClicked"
                     SemanticProperties.Hint="Use mobile vibration as a meal reminder" />
