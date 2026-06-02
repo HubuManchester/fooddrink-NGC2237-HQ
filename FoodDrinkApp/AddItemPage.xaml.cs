@@ -24,7 +24,7 @@ public partial class AddItemPage : ContentPage
             if (validationMessage is not null)
             {
                 ShowValidation(validationMessage);
-                Vibration.Default.Vibrate(TimeSpan.FromMilliseconds(250));
+                Vibration.Default.Vibrate(TimeSpan.FromMilliseconds(1200));
                 return;
             }
 

@@ -179,14 +179,21 @@ public partial class HardwarePage : ContentPage
     {
         try
         {
-            Vibration.Default.Vibrate(TimeSpan.FromMilliseconds(450));
+            System.Diagnostics.Debug.WriteLine("=== 震动按钮被点击了 ===");
+
+            Vibration.Default.Vibrate(TimeSpan.FromMilliseconds(1200));
+            System.Diagnostics.Debug.WriteLine("=== 震动命令已执行 ===");
+
             HapticFeedback.Default.Perform(HapticFeedbackType.LongPress);
+            System.Diagnostics.Debug.WriteLine("=== 触觉反馈已执行 ===");
+
             feedbackTestCount++;
             FeedbackCountLabel.Text = $"Haptic feedback tests: {feedbackTestCount}";
-            SetStatus("Vibration and haptic feedback triggered. The changing counter can be used for screen-recorded verification.");
+            SetStatus("Vibration and haptic feedback triggered.");
         }
         catch (Exception ex)
         {
+            System.Diagnostics.Debug.WriteLine($"=== 震动错误: {ex.Message} ===");
             SetStatus($"Feedback error: {ex.Message}");
         }
     }
