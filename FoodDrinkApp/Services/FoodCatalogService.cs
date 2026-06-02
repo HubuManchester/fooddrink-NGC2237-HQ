@@ -137,12 +137,6 @@ public static class FoodCatalogService
 
     private static async Task<IReadOnlyList<FoodItem>> GetAllAsync()
     {
-        // 强制使用本地静态数据，不连接 MockAPI
-        // 这样可以保证在没有网络的情况下也能正常运行
-        LastLoadUsedMockApi = false;
-        return cachedItems;
-
-        /* 以下为原 MockAPI 代码，已暂时禁用
         if (!MockApiConfig.IsConfigured)
         {
             LastLoadUsedMockApi = false;
@@ -166,6 +160,6 @@ public static class FoodCatalogService
 
         LastLoadUsedMockApi = false;
         return cachedItems;
-        */
+        
     }
 }

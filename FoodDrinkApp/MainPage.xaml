@@ -12,13 +12,6 @@
     <Grid RowDefinitions="Auto,*">
         <Grid.Background>
             <SolidColorBrush Color="{AppThemeBinding Light=#FAFAF3, Dark=#0F1711}" />
-            <!--
-            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                <GradientStop Color="{AppThemeBinding Light=#FFF1DA, Dark=#130F0C}" Offset="0.0" />
-                <GradientStop Color="{AppThemeBinding Light=#FFF9EF, Dark=#0F1711}" Offset="0.45" />
-                <GradientStop Color="{AppThemeBinding Light=#F7EFE3, Dark=#0E1511}" Offset="1.0" />
-            </LinearGradientBrush>
-            -->
         </Grid.Background>
 
         <Grid Padding="20,18,20,18">
@@ -28,42 +21,11 @@
                 </Border.StrokeShape>
                 <Border.Background>
                     <SolidColorBrush Color="{AppThemeBinding Light=#FFF0BC, Dark=#4A3417}" />
-                    <!--
-                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                        <GradientStop Color="{AppThemeBinding Light=#D9472B, Dark=#5B2017}" Offset="0.0" />
-                        <GradientStop Color="{AppThemeBinding Light=#F29B38, Dark=#9B4A19}" Offset="0.62" />
-                        <GradientStop Color="{AppThemeBinding Light=#2F7A4F, Dark=#1D5D3A}" Offset="1.0" />
-                    </LinearGradientBrush>
-                    -->
                 </Border.Background>
                 <Border.Shadow>
                     <Shadow Brush="#33000000" Offset="0,8" Radius="18" Opacity="0.45" />
                 </Border.Shadow>
                 <Grid RowDefinitions="Auto,Auto" RowSpacing="10">
-                    <!-- Row 0: 三个标签（Nutrition / Photos / Voice）
-                    <Grid Grid.Row="0" ColumnDefinitions="*,*,*" ColumnSpacing="8" Margin="0,3,0,0">
-                        <Border BackgroundColor="#33FFFFFF" StrokeThickness="0" Padding="10,7">
-                            <Border.StrokeShape>
-                                <RoundRectangle CornerRadius="8" />
-                            </Border.StrokeShape>
-                            <Label Text="Nutrition" TextColor="#FFFFFF" FontSize="12" FontAttributes="Bold" HorizontalTextAlignment="Center" />
-                        </Border>
-                        <Border Grid.Column="1" BackgroundColor="#33FFFFFF" StrokeThickness="0" Padding="10,7">
-                            <Border.StrokeShape>
-                                <RoundRectangle CornerRadius="8" />
-                            </Border.StrokeShape>
-                            <Label Text="Photos" TextColor="#FFFFFF" FontSize="12" FontAttributes="Bold" HorizontalTextAlignment="Center" />
-                        </Border>
-                        <Border Grid.Column="2" BackgroundColor="#33FFFFFF" StrokeThickness="0" Padding="10,7">
-                            <Border.StrokeShape>
-                                <RoundRectangle CornerRadius="8" />
-                            </Border.StrokeShape>
-                            <Label Text="Voice" TextColor="#FFFFFF" FontSize="12" FontAttributes="Bold" HorizontalTextAlignment="Center" />
-                        </Border>
-                    </Grid>
-                    -->
-
-                    <!-- Row 1: 搜索栏 + Add 按钮 -->
                     <Grid Grid.Row="0" ColumnDefinitions="*,Auto" ColumnSpacing="10" Margin="0,6,0,0">
                         <Border StrokeThickness="1"
                                 Stroke="#FFE0BA"
@@ -90,7 +52,6 @@
                                 SemanticProperties.Hint="Add a new food or drink record" />
                     </Grid>
 
-                    <!-- Row 2: 随机推荐按钮 -->
                     <Button Grid.Row="1"
                             Text="Randomly recommend delicious food"
                             BackgroundColor="{AppThemeBinding Light=#FFBF53, Dark=#FBB611}"
@@ -107,12 +68,10 @@
              x:Name="FoodRefreshView" 
              Refreshing="OnRefreshing"
              Margin="20,0,18,0">
-            <!-- 边距放在 RefreshView 上 -->
             <CollectionView x:Name="FoodCollection"
                     SelectionMode="None"
                     EmptyView="No matching food or drink records."
                     Margin="0">
-                <!-- CollectionView 本身不留边距 -->
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="models:FoodItem">
                         <Border StrokeThickness="1"

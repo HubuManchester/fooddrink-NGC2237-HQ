@@ -16,7 +16,7 @@ public class CategoryToColorConverter : IValueConverter
                 "dinner" => Color.FromArgb("#BCB4EF"),
                 "snack" => Color.FromArgb("#FFD4DB"),
                 "drink" => Color.FromArgb("#D0E8F2"),
-                _ => Color.FromArgb("#D9472B")  // 默认红色
+                _ => Color.FromArgb("#D9472B")
             };
         }
         return Color.FromArgb("#D9472B");

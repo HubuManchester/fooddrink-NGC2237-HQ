@@ -6,12 +6,6 @@
     <ScrollView>
         <ScrollView.Background>
             <SolidColorBrush Color="{AppThemeBinding Light=#FAFAF3, Dark=#0F1711}" />
-            <!--
-            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                <GradientStop Color="{AppThemeBinding Light=#FFF1DA, Dark=#130F0C}" Offset="0.0" />
-                <GradientStop Color="{AppThemeBinding Light=#FFF9EF, Dark=#0F1711}" Offset="1.0" />
-            </LinearGradientBrush>
-            -->
         </ScrollView.Background>
 
         <VerticalStackLayout Padding="22" Spacing="16">
