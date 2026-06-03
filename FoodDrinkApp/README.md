@@ -1,6 +1,7 @@
 # Today's meal
 
 > Author: Fu Nanjun
+
 > Student ID: 21906415
 
 This application is developed with .NET MAUI on the theme of "Food and Drink". It allows users to record food and drink items, view nutrition summaries, validate user input, and demonstrate mobile device hardware features.
