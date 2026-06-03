@@ -1,69 +1,52 @@
-# 食光营养助手
+# Today's meal
 
-> 作者：你的名字  
-> 学号：你的学号  
-> 课程：6G6Z0014 Mobile Computing  
+> Author: Fu Nanjun
+> Student ID: 21906415
 
-本应用基于 .NET MAUI 开发，主题为“食品与饮品”。应用可以记录食品和饮品，展示营养摘要，验证用户输入，并演示移动设备硬件功能。
+This application is developed with .NET MAUI on the theme of "Food and Drink". It allows users to record food and drink items, view nutrition summaries, validate user input, and demonstrate mobile device hardware features.
 
-## 主要功能
+## Main Features
 
-- 食品和饮品列表，支持搜索和详情页。
-- 添加记录表单，检查必填项和营养数值。
-- 使用相机拍摄食品照片并预览。
-- 使用定位记录用餐或购买地点。
-- 使用文字转语音朗读营养摘要和帮助内容。
-- 使用震动与触觉反馈提供操作提醒。
-- 支持主题切换和大字体模式。
-- 包含语义标签、屏幕阅读器播报和清晰的验证提示。
+- Food and drink list with search and detail page.
+- Form for adding records with validation for required fields and numeric values.
+- Camera capture for food photos saved to records.
+- Location tracking to record meal or purchase places.
+- Text-to-speech for reading nutrition summaries and help content.
+- Vibration and haptic feedback for operation alerts.
+- Shake device to get random food recommendation.
+- Theme switching and large text mode support.
+- Semantic labels, screen reader announcements, and clear validation messages.
 
-## 我的贡献
+## Core Features
 
-- 重构数据源，使用本地静态数据
-- 添加随机美食推荐功能
-- 实现相机、定位、语音、振动等硬件功能
-- 优化 UI 样式和深色模式适配
+- Local static data source with MockAPI cloud data synchronization
+- Random recommendation via button click and device shake
+- Hardware integration: camera, location, text-to-speech, vibration, haptic feedback, accelerometer
+- UI style optimization and dark mode adaptation
 
-## 评分点覆盖
+## Assessment Criteria Coverage
 
-- UI/UX 与无障碍：XAML 页面、底部导航、一致的视觉风格、深色模式、语义描述和屏幕阅读器播报。
-- 移动硬件：相机、定位、文字转语音、震动和触觉反馈。
-- 功能完整性：列表、搜索、添加、详情、设置和硬件演示流程。
-- 验证与错误处理：必填项检查、数字检查、权限错误和硬件不可用提示。
-- 代码质量：模型和服务分离、命名清晰、可复用的目录服务，以及范围清晰的页面代码。
-- 部署：面向 Android 和 Windows 的 .NET MAUI 跨平台应用。
-- GitHub 使用：建议持续提交，例如 `添加食品列表`、`实现硬件页面`、`添加输入验证`。
+- UI/UX and Accessibility: XAML pages, tab navigation, consistent visual style, dark mode, semantic descriptions, and screen reader announcements.
+- Mobile Hardware: Camera, location, text-to-speech, vibration, haptic feedback, accelerometer (shake).
+- Functionality: List, search, add, detail, settings, random recommendation, hardware demonstration flow.
+- Validation and Error Handling: Required field checks, numeric validation, permission errors, and hardware unavailable alerts.
+- Code Quality: Separation of models and services, clear naming, reusable catalog service, and well-scoped page code.
+- Deployment: Cross-platform .NET MAUI application for Android and Windows.
+- GitHub Usage: Continuous commits with clear messages.
 
-## 运行方式
+## How to Run
 
-使用安装了 .NET MAUI 工作负载的 Visual Studio 2022 打开 `FoodDrinkApp.csproj` 或 `FoodDrinkApp.sln`。
+Open FoodDrinkApp.csproj or FoodDrinkApp.sln with Visual Studio 2022 with .NET MAUI workload installed.
 
-推荐演示目标：
+Recommended demonstration targets:
 
-- Android 模拟器
+- Android emulator or physical device
 - Windows Machine
 
-Windows 构建命令：
+Windows build command:
 
-```powershell
 dotnet build .\FoodDrinkApp.csproj -f net9.0-windows10.0.19041.0
-```
 
-Android 构建命令：
+Android build command:
 
-```powershell
 dotnet build .\FoodDrinkApp.csproj -f net9.0-android
-```
-
-本项目通过 `Directory.Build.props` 将构建输出放到 `C:\MauiBuild\NutriTrack\`，用于规避 Android 打包工具在中文路径下的 `assets` 路径问题。
-
-## 录屏演示清单
-
-- 说明“食品与饮品”主题和“食光营养助手”的应用概念。
-- 展示搜索、详情页和添加新记录。
-- 演示不填必填项、输入非法数字时的验证提示。
-- 演示相机、定位、文字转语音、震动和触觉反馈。
-- 展示深色模式和大字体模式。
-- 展示关键代码文件：模型、服务、页面和 Android 权限配置。
-- 展示 Android 和 Windows 部署效果。
-- 展示 GitHub 提交历史和 README。

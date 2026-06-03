@@ -20,6 +20,7 @@ public static class FoodCatalogService
     [
         new()
         {
+            Id = "1",
             Name = "Berry Yogurt Bowl",
             Category = "Breakfast",
             Description = "Greek yogurt with mixed berries, oats, and a small drizzle of honey.",
@@ -32,6 +33,7 @@ public static class FoodCatalogService
         },
         new()
         {
+            Id = "2",
             Name = "Chicken Brown Rice Box",
             Category = "Lunch",
             Description = "Grilled chicken breast with brown rice, spinach, cucumber, and lemon dressing.",
@@ -44,6 +46,7 @@ public static class FoodCatalogService
         },
         new()
         {
+            Id = "3",
             Name = "Iced Matcha Latte",
             Category = "Drink",
             Description = "Matcha, milk, and ice. A lower-sugar version is recommended.",
@@ -56,6 +59,7 @@ public static class FoodCatalogService
         },
         new()
         {
+            Id = "4",
             Name = "Tomato Wholegrain Pasta",
             Category = "Dinner",
             Description = "Wholegrain pasta with tomato sauce, basil, and roasted vegetables.",
@@ -120,18 +124,29 @@ public static class FoodCatalogService
     {
         if (MockApiConfig.IsConfigured)
         {
-            var response = await HttpClient.PostAsJsonAsync(MockApiConfig.EndpointUrl, item, JsonOptions);
-            response.EnsureSuccessStatusCode();
-
-            var created = await response.Content.ReadFromJsonAsync<FoodItem>(JsonOptions);
-            if (created is not null)
+            try
             {
-                cachedItems.Add(created);
-                return created;
+                var response = await HttpClient.PostAsJsonAsync(MockApiConfig.EndpointUrl, item, JsonOptions);
+                response.EnsureSuccessStatusCode();
+
+                var created = await response.Content.ReadFromJsonAsync<FoodItem>(JsonOptions);
+                if (created is not null)
+                {
+                    cachedItems.Add(created);
+                    LastLoadUsedMockApi = true;
+                    return created;
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"MockAPI POST error: {ex.Message}");
             }
         }
 
+        // Fallback to local
+        item.Id = Guid.NewGuid().ToString("N");
         cachedItems.Add(item);
+        LastLoadUsedMockApi = false;
         return item;
     }
 
@@ -153,13 +168,12 @@ public static class FoodCatalogService
                 return cachedItems;
             }
         }
-        catch
+        catch (Exception ex)
         {
-            // Keep the app usable during demos even if the network is unavailable.
+            System.Diagnostics.Debug.WriteLine($"MockAPI GET error: {ex.Message}");
         }
 
         LastLoadUsedMockApi = false;
         return cachedItems;
-        
     }
 }
